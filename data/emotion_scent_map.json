@@ -1,0 +1,156 @@
+{
+  "_meta": {
+    "source": "825 votos, 55 respondentes, 15 escenarios — Mio Úmore encuesta Dani Sanz",
+    "note": "P(familia | emoción) calculado de frecuencias reales del dataset"
+  },
+  "Renovación": {
+    "top_family": "Green/Earthy",
+    "top_environment": "Tierra mojada después de lluvia",
+    "confidence": "alta",
+    "distribution": {
+      "Green/Earthy": 0.61,
+      "Aquatic/Mineral": 0.32,
+      "Clean/Fresh": 0.07
+    }
+  },
+  "Esperanza": {
+    "top_family": "Aquatic/Mineral",
+    "top_environment": "Brisa marina / aire salado",
+    "confidence": "muy alta",
+    "distribution": {
+      "Aquatic/Mineral": 0.80,
+      "Clean/Fresh": 0.13,
+      "Green/Earthy": 0.07
+    }
+  },
+  "Triunfo": {
+    "top_family": "Sparkling/Boozy",
+    "top_environment": "Brindis de champagne",
+    "confidence": "alta",
+    "distribution": {
+      "Sparkling/Boozy": 0.62,
+      "Gourmand/Sweet": 0.14,
+      "Woody": 0.10
+    }
+  },
+  "Intimidad": {
+    "top_family": "Woody",
+    "top_environment": "Piel cálida / cercanía",
+    "confidence": "alta",
+    "distribution": {
+      "Woody": 0.40,
+      "Smoky/Resin": 0.23,
+      "Gourmand/Sweet": 0.17
+    }
+  },
+  "Calma": {
+    "top_family": "Aquatic/Mineral",
+    "top_environment": "Lluvia en cemento / pavimento mojado",
+    "confidence": "media",
+    "distribution": {
+      "Aquatic/Mineral": 0.29,
+      "Clean/Fresh": 0.21,
+      "Floral": 0.17
+    }
+  },
+  "Confianza": {
+    "top_family": "Floral",
+    "top_environment": "Nube de perfume elegante",
+    "confidence": "media",
+    "distribution": {
+      "Floral": 0.50,
+      "Clean/Fresh": 0.16,
+      "Leather": 0.14
+    }
+  },
+  "Claridad": {
+    "top_family": "Aquatic/Mineral",
+    "top_environment": "Brisa marina / aire salado",
+    "confidence": "alta",
+    "distribution": {
+      "Aquatic/Mineral": 0.53,
+      "Clean/Fresh": 0.18,
+      "Green/Earthy": 0.12
+    }
+  },
+  "Inspiración": {
+    "top_family": "Aquatic/Mineral",
+    "top_environment": "Pasillos de mármol / aire de piedra",
+    "confidence": "alta",
+    "distribution": {
+      "Aquatic/Mineral": 0.60,
+      "Woody": 0.20,
+      "Smoky/Resin": 0.13
+    }
+  },
+  "Determinación": {
+    "top_family": "Woody",
+    "top_environment": "Bosque oscuro / madera pulida",
+    "confidence": "alta",
+    "distribution": {
+      "Woody": 0.42,
+      "Gourmand/Sweet": 0.16,
+      "Smoky/Resin": 0.11
+    }
+  },
+  "Emoción": {
+    "top_family": "Clean/Fresh",
+    "top_environment": "Sábanas de hotel frescas",
+    "confidence": "media",
+    "distribution": {
+      "Clean/Fresh": 0.35,
+      "Sparkling/Boozy": 0.11,
+      "Floral": 0.17
+    }
+  },
+  "Romance": {
+    "top_family": "Floral",
+    "top_environment": "Ramo de flores",
+    "confidence": "muy alta",
+    "distribution": {
+      "Floral": 0.82,
+      "Green/Earthy": 0.12,
+      "Powdery/Cosmetic": 0.06
+    }
+  },
+  "Confort": {
+    "top_family": "Gourmand/Sweet",
+    "top_environment": "Algodón limpio / tela secada al sol",
+    "confidence": "media",
+    "distribution": {
+      "Gourmand/Sweet": 0.59,
+      "Clean/Fresh": 0.36,
+      "Floral": 0.05
+    }
+  },
+  "Libertad": {
+    "top_family": "Green/Earthy",
+    "top_environment": "Hojas de bosque / canopia verde",
+    "confidence": "media",
+    "distribution": {
+      "Green/Earthy": 0.54,
+      "Clean/Fresh": 0.29,
+      "Aquatic/Mineral": 0.07
+    }
+  },
+  "Serenidad": {
+    "top_family": "Green/Earthy",
+    "top_environment": "Bosque de pinos",
+    "confidence": "alta",
+    "distribution": {
+      "Green/Earthy": 0.43,
+      "Aquatic/Mineral": 0.24,
+      "Smoky/Resin": 0.19
+    }
+  },
+  "Gratitud": {
+    "top_family": "Floral",
+    "top_environment": "Ramo de flores",
+    "confidence": "media",
+    "distribution": {
+      "Floral": 0.54,
+      "Green/Earthy": 0.15,
+      "Gourmand/Sweet": 0.15
+    }
+  }
+}

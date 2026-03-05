@@ -1,0 +1,188 @@
+{
+  "_meta": {
+    "note": "Librería de acordes — estructura lista. Ana Quemistry completa los campos marcados con TODO.",
+    "families": ["Clean/Fresh", "Floral", "Aquatic/Mineral", "Woody", "Green/Earthy", "Gourmand/Sweet", "Sparkling/Boozy", "Leather", "Smoky/Resin", "Powdery/Cosmetic"]
+  },
+  "acordes": [
+    {
+      "id": "AC01",
+      "nombre": "Lluvia de Agosto",
+      "familia": "Aquatic/Mineral",
+      "emociones": ["Calma", "Renovación", "Claridad"],
+      "notas": {
+        "salida": ["Petricor", "Ozónico limpio"],
+        "corazon": ["Vetiver acuoso", "Menta verde"],
+        "base": ["Musgo de piedra", "Sándalo claro"]
+      },
+      "descripcion": "El olor exacto del primer minuto de lluvia sobre asfalto caliente. Para los que necesitan reiniciarse.",
+      "ingredientes_ana": "TODO — Ana completa: nombre INCI, % en fórmula, origen, costo/g",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Vetiver: efecto grounding. Menta: claridad mental.",
+      "refillable": true
+    },
+    {
+      "id": "AC02",
+      "nombre": "Sal y Viento",
+      "familia": "Aquatic/Mineral",
+      "emociones": ["Esperanza", "Claridad", "Libertad"],
+      "notas": {
+        "salida": ["Sal marina", "Brisa cítrica"],
+        "corazon": ["Algas marinas", "Flor de tilo"],
+        "base": ["Musgo blanco", "Cedro atlántico"]
+      },
+      "descripcion": "La primera bocanada de aire cuando ves el mar. Para los que esperan algo bueno.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Notas marinas: reducción de estrés. Cedro: estabilidad emocional.",
+      "refillable": true
+    },
+    {
+      "id": "AC03",
+      "nombre": "Tierra Después",
+      "familia": "Green/Earthy",
+      "emociones": ["Renovación", "Serenidad", "Libertad"],
+      "notas": {
+        "salida": ["Petricor", "Hoja verde húmeda"],
+        "corazon": ["Vetiver", "Musgo de roble"],
+        "base": ["Tierra de patchouli suave", "Madera de cedro"]
+      },
+      "descripcion": "Tierra mojada después de lluvia. El olor del comienzo.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Patchouli en dosis baja: grounding. Vetiver: calma profunda.",
+      "refillable": true
+    },
+    {
+      "id": "AC04",
+      "nombre": "Noche de Victoria",
+      "familia": "Sparkling/Boozy",
+      "emociones": ["Triunfo", "Emoción", "Confianza"],
+      "notas": {
+        "salida": ["Champagne", "Limón brillante"],
+        "corazon": ["Jazmín de noche", "Rosa de té"],
+        "base": ["Almizcle blanco limpio", "Madera de cedro"]
+      },
+      "descripcion": "El instante en que descorchas algo que te ganaste. Para celebrar contigo misma.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Jazmín: estado de ánimo positivo. Notas efervescentes: elevación.",
+      "refillable": true
+    },
+    {
+      "id": "AC05",
+      "nombre": "Piel Cercana",
+      "familia": "Woody",
+      "emociones": ["Intimidad", "Confort", "Romance"],
+      "notas": {
+        "salida": ["Cardamomo suave", "Bergamota cálida"],
+        "corazon": ["Sándalo cremoso", "Iris"],
+        "base": ["Almizcle de piel", "Vainilla seca", "Ámbar cálido"]
+      },
+      "descripcion": "El calor de alguien que conoces muy bien. Para los momentos íntimos.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Sándalo: calma y grounding. Cardamomo: calidez emocional.",
+      "refillable": true
+    },
+    {
+      "id": "AC06",
+      "nombre": "Bosque a Medianoche",
+      "familia": "Woody",
+      "emociones": ["Determinación", "Serenidad", "Inspiración"],
+      "notas": {
+        "salida": ["Pino negro", "Eucalipto"],
+        "corazon": ["Madera oscura", "Incienso suave"],
+        "base": ["Vetiver ahumado", "Musgo de bosque"]
+      },
+      "descripcion": "El bosque cuando ya no hay luz pero todo se siente claro. Para cuando decides algo difícil.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Pino: claridad mental. Incienso: calma profunda y presencia.",
+      "refillable": true
+    },
+    {
+      "id": "AC07",
+      "nombre": "Mañana Limpia",
+      "familia": "Clean/Fresh",
+      "emociones": ["Calma", "Emoción", "Esperanza"],
+      "notas": {
+        "salida": ["Bergamota", "Limón fresco"],
+        "corazon": ["Té verde", "Lavanda suave"],
+        "base": ["Almizcle blanco", "Madera de cachemira"]
+      },
+      "descripcion": "Cuando abres la ventana y todo huele a posibilidad. Simple, luminoso, tuyo.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Lavanda: reducción de ansiedad. Bergamota: estado de ánimo positivo.",
+      "refillable": true
+    },
+    {
+      "id": "AC08",
+      "nombre": "Flores de Noche",
+      "familia": "Floral",
+      "emociones": ["Romance", "Gratitud", "Confianza"],
+      "notas": {
+        "salida": ["Neroli", "Bergamota rosa"],
+        "corazon": ["Jazmín absoluto", "Rosa de Grasse", "Ylang ylang (traza)"],
+        "base": ["Sándalo suave", "Almizcle limpio"]
+      },
+      "descripcion": "Las flores que huelen más en la oscuridad. Para cuando quieres que te recuerden.",
+      "ingredientes_ana": "TODO — nota: ylang ylang requiere verificación de % IFRA para leave-on",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": "pendiente verificación ylang ylang",
+      "funcion_cognitiva": "Jazmín: estado de ánimo positivo, calidez. Neroli: reducción de ansiedad.",
+      "refillable": true
+    },
+    {
+      "id": "AC09",
+      "nombre": "Mármol y Luz",
+      "familia": "Aquatic/Mineral",
+      "emociones": ["Inspiración", "Claridad", "Determinación"],
+      "notas": {
+        "salida": ["Ozónico mineral", "Pomelo"],
+        "corazon": ["Piedra mojada", "Iris en polvo"],
+        "base": ["Cedro gris", "Almizcle mineral"]
+      },
+      "descripcion": "El silencio de un espacio enorme donde todo es posible. Para los momentos de visión.",
+      "ingredientes_ana": "TODO",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Notas minerales: enfoque y claridad. Iris: creatividad.",
+      "refillable": true
+    },
+    {
+      "id": "AC10",
+      "nombre": "Vainilla de Domingo",
+      "familia": "Gourmand/Sweet",
+      "emociones": ["Confort", "Calma", "Gratitud"],
+      "notas": {
+        "salida": ["Vainilla de Madagascar", "Leche tibia"],
+        "corazon": ["Tonka bean", "Benjuí suave"],
+        "base": ["Sándalo cremoso", "Almizcle cálido"]
+      },
+      "descripcion": "El olor de quedarte en casa cuando afuera llueve. Para los días de cuidarte.",
+      "ingredientes_ana": "TODO — verificar: usar vanillin de origen vegetal como alternativa económica",
+      "clean": true,
+      "sin_disruptores": true,
+      "ifra_ok": true,
+      "funcion_cognitiva": "Vainilla: confort y reducción de estrés. Tonka: calidez emocional.",
+      "refillable": true
+    }
+  ]
+}
