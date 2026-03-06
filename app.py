@@ -68,15 +68,15 @@ html, body, [class*="css"] {
 .rule-line { flex: 1; height: 1px; background: rgba(180,150,100,0.15); }
 .rule-diamond { color: #B4966A; font-size: 0.5rem; opacity: 0.6; }
 
-.q-step { font-size: 0.58rem; letter-spacing: 0.4em; color: #4A3F35; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center; }
-.q-text { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; color: #C9B89A; text-align: center; margin-bottom: 1.6rem; line-height: 1.5; }
+.q-step { font-size: 0.72rem; letter-spacing: 0.35em; color: #5A4E42; text-transform: uppercase; margin-bottom: 0.6rem; text-align: center; }
+.q-text { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 400; font-style: italic; color: #C9B89A; text-align: center; margin-bottom: 1.6rem; line-height: 1.6; }
 
-div[role="radiogroup"] { display: flex; flex-direction: column; gap: 0.4rem; }
+div[role="radiogroup"] { display: flex; flex-direction: column; gap: 0.5rem; }
 div[role="radiogroup"] label {
     background: transparent !important; border: 1px solid rgba(180,150,100,0.12) !important;
-    border-radius: 0 !important; padding: 0.75rem 1.2rem !important; color: #9A8C7E !important;
-    font-family: 'Didact Gothic', sans-serif !important; font-size: 0.82rem !important;
-    letter-spacing: 0.08em !important; transition: all 0.25s ease !important;
+    border-radius: 0 !important; padding: 0.9rem 1.4rem !important; color: #B0A090 !important;
+    font-family: 'Didact Gothic', sans-serif !important; font-size: 1rem !important;
+    letter-spacing: 0.06em !important; transition: all 0.25s ease !important;
     cursor: pointer !important; text-align: center !important;
 }
 div[role="radiogroup"] label:hover {
@@ -87,7 +87,7 @@ div[role="radiogroup"] label:hover {
 .stTextArea textarea {
     background: rgba(180,150,100,0.02) !important; border: 1px solid rgba(180,150,100,0.2) !important;
     border-radius: 0 !important; color: #D4C9BC !important;
-    font-family: 'EB Garamond', serif !important; font-size: 1.05rem !important;
+    font-family: 'EB Garamond', serif !important; font-size: 1.2rem !important;
     font-style: italic !important; line-height: 1.8 !important; padding: 1.2rem !important; resize: none !important;
 }
 .stTextArea textarea:focus { border-color: rgba(180,150,100,0.5) !important; box-shadow: none !important; }
@@ -96,8 +96,8 @@ div[role="radiogroup"] label:hover {
 .stButton > button {
     background: transparent !important; border: 1px solid rgba(180,150,100,0.4) !important;
     color: #B4966A !important; font-family: 'Didact Gothic', sans-serif !important;
-    font-size: 0.68rem !important; font-weight: 400 !important; letter-spacing: 0.35em !important;
-    text-transform: uppercase !important; padding: 0.9rem 2rem !important;
+    font-size: 0.82rem !important; font-weight: 400 !important; letter-spacing: 0.28em !important;
+    text-transform: uppercase !important; padding: 1rem 2.5rem !important;
     border-radius: 0 !important; transition: all 0.3s ease !important; width: 100% !important; margin-top: 0.5rem !important;
 }
 .stButton > button:hover {
@@ -198,8 +198,8 @@ div[role="radiogroup"] label:hover {
 .stProgress > div > div > div { background: linear-gradient(90deg, #6B5040, #B4966A) !important; }
 
 .intro-container { text-align: center; padding: 2rem 1rem 3rem; }
-.intro-text { font-family: 'EB Garamond', serif; font-size: 1.2rem; font-style: italic; color: #6B5E50; line-height: 1.9; max-width: 380px; margin: 0 auto 2.5rem; }
-.intro-detail { font-size: 0.62rem; letter-spacing: 0.35em; color: #3A3028; text-transform: uppercase; margin-bottom: 2rem; }
+.intro-text { font-family: 'EB Garamond', serif; font-size: 1.5rem; font-style: italic; color: #7A6E62; line-height: 1.9; max-width: 380px; margin: 0 auto 2.5rem; }
+.intro-detail { font-size: 0.78rem; letter-spacing: 0.3em; color: #4A3E34; text-transform: uppercase; margin-bottom: 2rem; }
 
 .mirror-prompt { background: rgba(180,150,100,0.02); border-left: 2px solid rgba(180,150,100,0.25); padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; font-family: 'EB Garamond', serif; font-size: 1rem; font-style: italic; color: #7A6A5A; line-height: 1.7; }
 </style>
@@ -358,9 +358,11 @@ if st.session_state.step == 0:
         <p class="intro-detail">Deux questions · Une histoire · Votre parfum</p>
     </div>
     """, unsafe_allow_html=True)
-    if st.button("Entrer"):
-        st.session_state.step = 1
-        st.rerun()
+    col_l, col_c, col_r = st.columns([1, 2, 1])
+    with col_c:
+        if st.button("Entrer"):
+            st.session_state.step = 1
+            st.rerun()
 
 # ══════════════════════════════════════════════════════════
 # STEP 1 — DOS PREGUNTAS
