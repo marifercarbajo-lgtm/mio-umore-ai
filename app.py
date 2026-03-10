@@ -3,6 +3,7 @@ import json
 import random
 import time
 from pathlib import Path
+from ai_engine import full_analysis
 
 st.set_page_config(
     page_title="Mio Úmore",
@@ -59,8 +60,8 @@ html, body, [class*="css"] {
     margin-bottom: 0.3rem; text-transform: uppercase;
 }
 .brand-tagline {
-    font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.45em;
-    text-align: center; color: #6B5E50; text-transform: uppercase; margin-bottom: 0.6rem;
+    font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.45em;
+    text-align: center; color: #B4966A; text-transform: uppercase; margin-bottom: 0.6rem;
 }
 .ornament { text-align: center; color: #B4966A; font-size: 0.7rem; letter-spacing: 0.5em; margin-bottom: 2.5rem; opacity: 0.6; }
 
@@ -68,8 +69,8 @@ html, body, [class*="css"] {
 .rule-line { flex: 1; height: 1px; background: rgba(180,150,100,0.15); }
 .rule-diamond { color: #B4966A; font-size: 0.5rem; opacity: 0.6; }
 
-.q-step { font-size: 0.72rem; letter-spacing: 0.35em; color: #5A4E42; text-transform: uppercase; margin-bottom: 0.6rem; text-align: center; }
-.q-text { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 400; font-style: italic; color: #C9B89A; text-align: center; margin-bottom: 1.6rem; line-height: 1.6; }
+.q-step { font-size: 0.72rem; letter-spacing: 0.35em; color: #B4966A; text-transform: uppercase; margin-bottom: 0.6rem; text-align: center; }
+.q-text { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 400; font-style: italic; color: #E8DDD0; text-align: center; margin-bottom: 1.6rem; line-height: 1.6; }
 
 div[role="radiogroup"] { display: flex; flex-direction: column; gap: 0.5rem; }
 div[role="radiogroup"] label {
@@ -176,32 +177,32 @@ div[role="radiogroup"] label:hover {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(180,150,100,0.6), transparent);
 }
-.accord-name-reveal { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 300; color: #EDE5D8; letter-spacing: 0.06em; margin-bottom: 0.2rem; animation: fadeInUp 0.6s ease 1.4s both; }
-.accord-family-reveal { font-size: 0.6rem; letter-spacing: 0.45em; color: #5A4E42; text-transform: uppercase; margin-bottom: 1.4rem; animation: fadeInUp 0.6s ease 1.5s both; }
-.accord-desc-reveal { font-family: 'EB Garamond', serif; font-size: 1.1rem; font-style: italic; color: #9A8C7E; line-height: 1.75; margin-bottom: 1.6rem; animation: fadeInUp 0.6s ease 1.6s both; }
+.accord-name-reveal { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 300; color: #F2EBE0; letter-spacing: 0.06em; margin-bottom: 0.2rem; animation: fadeInUp 0.6s ease 1.4s both; }
+.accord-family-reveal { font-size: 0.7rem; letter-spacing: 0.45em; color: #B4966A; text-transform: uppercase; margin-bottom: 1.4rem; animation: fadeInUp 0.6s ease 1.5s both; }
+.accord-desc-reveal { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-style: italic; color: #C9B89A; line-height: 1.75; margin-bottom: 1.6rem; animation: fadeInUp 0.6s ease 1.6s both; }
 
-.notes-row { display: flex; gap: 0; margin-bottom: 1.5rem; border-top: 1px solid rgba(180,150,100,0.08); border-bottom: 1px solid rgba(180,150,100,0.08); padding: 1rem 0; animation: fadeInUp 0.6s ease 1.7s both; }
+.notes-row { display: flex; gap: 0; margin-bottom: 1.5rem; border-top: 1px solid rgba(180,150,100,0.15); border-bottom: 1px solid rgba(180,150,100,0.15); padding: 1rem 0; animation: fadeInUp 0.6s ease 1.7s both; }
 .note-col { flex: 1; text-align: center; padding: 0 0.5rem; }
-.note-col + .note-col { border-left: 1px solid rgba(180,150,100,0.08); }
-.note-label { font-size: 0.55rem; letter-spacing: 0.35em; color: #4A3F35; text-transform: uppercase; margin-bottom: 0.4rem; }
-.note-value { font-size: 0.78rem; color: #8A7A6A; line-height: 1.5; }
+.note-col + .note-col { border-left: 1px solid rgba(180,150,100,0.12); }
+.note-label { font-size: 0.65rem; letter-spacing: 0.35em; color: #B4966A; text-transform: uppercase; margin-bottom: 0.4rem; }
+.note-value { font-size: 0.85rem; color: #D4C9BC; line-height: 1.5; }
 
-.engraved-section { background: #060504; border: 1px solid rgba(180,150,100,0.12); padding: 1.4rem; text-align: center; animation: fadeInUp 0.6s ease 1.9s both; position: relative; }
-.engraved-section::before { content: '— ◆ —'; display: block; font-size: 0.5rem; color: rgba(180,150,100,0.3); letter-spacing: 0.4em; margin-bottom: 0.7rem; }
-.engraved-section::after { content: '— ◆ —'; display: block; font-size: 0.5rem; color: rgba(180,150,100,0.3); letter-spacing: 0.4em; margin-top: 0.7rem; }
-.engraved-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 300; font-style: italic; color: #C9A87A; animation: nameEngrave 1.2s cubic-bezier(0.22,1,0.36,1) 2.2s both; letter-spacing: 0.12em; }
-.engraved-sub { font-size: 0.58rem; letter-spacing: 0.35em; color: #3A3028; text-transform: uppercase; margin-top: 0.5rem; animation: fadeInUp 0.6s ease 2.6s both; }
-.clean-badge { display: inline-block; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid rgba(74,124,89,0.3); color: #4A7C59; padding: 0.3rem 0.8rem; margin-top: 1.2rem; animation: fadeInUp 0.6s ease 2.4s both; }
-.hashtag { font-size: 0.65rem; letter-spacing: 0.2em; color: #3A3028; text-transform: uppercase; margin-top: 1rem; animation: fadeInUp 0.6s ease 2.8s both; }
+.engraved-section { background: #060504; border: 1px solid rgba(180,150,100,0.18); padding: 1.4rem; text-align: center; animation: fadeInUp 0.6s ease 1.9s both; position: relative; }
+.engraved-section::before { content: '— ◆ —'; display: block; font-size: 0.5rem; color: rgba(180,150,100,0.4); letter-spacing: 0.4em; margin-bottom: 0.7rem; }
+.engraved-section::after { content: '— ◆ —'; display: block; font-size: 0.5rem; color: rgba(180,150,100,0.4); letter-spacing: 0.4em; margin-top: 0.7rem; }
+.engraved-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 300; font-style: italic; color: #D4B98A; animation: nameEngrave 1.2s cubic-bezier(0.22,1,0.36,1) 2.2s both; letter-spacing: 0.12em; }
+.engraved-sub { font-size: 0.65rem; letter-spacing: 0.35em; color: #8A7A6A; text-transform: uppercase; margin-top: 0.5rem; animation: fadeInUp 0.6s ease 2.6s both; }
+.clean-badge { display: inline-block; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid rgba(74,124,89,0.4); color: #6A9C79; padding: 0.3rem 0.8rem; margin-top: 1.2rem; animation: fadeInUp 0.6s ease 2.4s both; }
+.hashtag { font-size: 0.7rem; letter-spacing: 0.2em; color: #8A7A6A; text-transform: uppercase; margin-top: 1rem; animation: fadeInUp 0.6s ease 2.8s both; }
 
 .stProgress > div > div { background: rgba(180,150,100,0.08) !important; }
 .stProgress > div > div > div { background: linear-gradient(90deg, #6B5040, #B4966A) !important; }
 
 .intro-container { text-align: center; padding: 2rem 1rem 3rem; }
-.intro-text { font-family: 'EB Garamond', serif; font-size: 1.5rem; font-style: italic; color: #7A6E62; line-height: 1.9; max-width: 380px; margin: 0 auto 2.5rem; }
-.intro-detail { font-size: 0.78rem; letter-spacing: 0.3em; color: #4A3E34; text-transform: uppercase; margin-bottom: 2rem; }
+.intro-text { font-family: 'EB Garamond', serif; font-size: 1.5rem; font-style: italic; color: #C9B89A; line-height: 1.9; max-width: 380px; margin: 0 auto 2.5rem; }
+.intro-detail { font-size: 0.78rem; letter-spacing: 0.3em; color: #8A7A6A; text-transform: uppercase; margin-bottom: 2rem; }
 
-.mirror-prompt { background: rgba(180,150,100,0.02); border-left: 2px solid rgba(180,150,100,0.25); padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; font-family: 'EB Garamond', serif; font-size: 1rem; font-style: italic; color: #7A6A5A; line-height: 1.7; }
+.mirror-prompt { background: rgba(180,150,100,0.02); border-left: 2px solid rgba(180,150,100,0.25); padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; font-family: 'EB Garamond', serif; font-size: 1rem; font-style: italic; color: #B0A090; line-height: 1.7; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -224,73 +225,24 @@ MEMORY_TITLES = {
     "Gratitud":      ["Por todo esto", "Gracias en silencio", "Lo que tengo"],
 }
 
-STORY_KEYWORDS = {
-    "mar": ("Esperanza", 3), "océano": ("Esperanza", 3), "playa": ("Esperanza", 2),
-    "agua": ("Calma", 2), "lluvia": ("Renovación", 3), "tierra": ("Renovación", 2),
-    "bosque": ("Serenidad", 3), "pino": ("Serenidad", 2), "flores": ("Romance", 2),
-    "rosa": ("Romance", 2), "jardín": ("Gratitud", 2), "casa": ("Confort", 3),
-    "hogar": ("Confort", 3), "cocina": ("Confort", 2), "familia": ("Gratitud", 3),
-    "mamá": ("Gratitud", 2), "abuela": ("Gratitud", 2), "amor": ("Romance", 3),
-    "beso": ("Romance", 2), "abrazo": ("Intimidad", 3), "viaje": ("Libertad", 3),
-    "aventura": ("Libertad", 2), "noche": ("Intimidad", 2), "luna": ("Serenidad", 2),
-    "estrellas": ("Esperanza", 2), "fuerza": ("Determinación", 3), "poder": ("Confianza", 3),
-    "logré": ("Triunfo", 3), "gané": ("Triunfo", 3), "victoria": ("Triunfo", 2),
-    "éxito": ("Triunfo", 2), "paz": ("Serenidad", 3), "silencio": ("Serenidad", 2),
-    "libre": ("Libertad", 3), "volar": ("Libertad", 2), "nuevo": ("Renovación", 3),
-    "empezar": ("Renovación", 2), "cambio": ("Renovación", 2), "luz": ("Claridad", 2),
-    "oscuro": ("Determinación", 2), "misterio": ("Intimidad", 2), "champagne": ("Triunfo", 2),
-    "libro": ("Inspiración", 3), "arte": ("Inspiración", 2), "crear": ("Inspiración", 2),
-    "decidí": ("Determinación", 3), "confío": ("Confianza", 2), "ciudad": ("Emoción", 2),
-    "música": ("Emoción", 2), "baile": ("Libertad", 2), "café": ("Confort", 2),
-    "vino": ("Romance", 2), "perfume": ("Confianza", 1), "tranquil": ("Calma", 3),
-}
+STORY_KEYWORDS = {}  # Moved to ai_engine.py — kept empty here for reference
 
-def analyze_story(story_text, ocasion, sentir):
-    scores = {e: 0 for e in emotion_map.keys() if e != "_meta"}
-    if story_text:
-        s = story_text.lower()
-        for kw, (emotion, boost) in STORY_KEYWORDS.items():
-            if kw in s and emotion in scores:
-                scores[emotion] += boost
-        word_count = len(story_text.split())
-        if word_count > 80:
-            scores["Intimidad"] = scores.get("Intimidad", 0) + 2
-            scores["Inspiración"] = scores.get("Inspiración", 0) + 1
+def analyze_and_build_result(story_text, ocasion, sentir):
+    """Calls ai_engine.full_analysis — Claude API first, keyword fallback if no API key."""
+    api_key = None
+    try:
+        api_key = st.secrets["ANTHROPIC_API_KEY"]
+    except Exception:
+        api_key = None
 
-    ocasion_map = {
-        "Para el día a día":       {"Calma": 2, "Confort": 2, "Claridad": 1},
-        "Para una noche especial": {"Confianza": 2, "Romance": 2, "Triunfo": 1},
-        "Solo para mí":            {"Libertad": 2, "Serenidad": 2, "Gratitud": 1},
-    }
-    sentir_map = {
-        "Poderosa e imparable":  {"Confianza": 3, "Determinación": 2, "Triunfo": 2},
-        "Tranquila y en paz":    {"Calma": 3, "Serenidad": 3},
-        "Libre y sin límites":   {"Libertad": 3, "Esperanza": 2, "Renovación": 2},
-        "Misteriosa y profunda": {"Intimidad": 2, "Determinación": 2, "Inspiración": 2},
-        "Luminosa y renovada":   {"Renovación": 3, "Esperanza": 3, "Claridad": 2},
-    }
-    for k, v in ocasion_map.items():
-        if ocasion == k:
-            for e, pts in v.items():
-                scores[e] = scores.get(e, 0) + pts
-    for k, v in sentir_map.items():
-        if sentir == k:
-            for e, pts in v.items():
-                scores[e] = scores.get(e, 0) + pts
-
-    return max(scores, key=lambda e: scores[e])
-
-def get_accord(emotion):
-    candidates = [a for a in accord_lib["acordes"] if emotion in a["emociones"]]
-    if candidates:
-        return random.choice(candidates)
-    top_family = emotion_map.get(emotion, {}).get("top_family", "Clean/Fresh")
-    family_c = [a for a in accord_lib["acordes"] if a["familia"] == top_family]
-    return random.choice(family_c) if family_c else accord_lib["acordes"][0]
-
-def get_memory_title(emotion):
-    titles = MEMORY_TITLES.get(emotion, ["Lo que fue mío", "Sin nombre aún", "El momento"])
-    return random.choice(titles)
+    return full_analysis(
+        story=story_text,
+        ocasion=ocasion,
+        sentir=sentir,
+        emotion_map=emotion_map,
+        accord_lib=accord_lib,
+        api_key=api_key,
+    )
 
 def bottle_svg():
     return """
@@ -345,7 +297,7 @@ for key, val in [("step", 0), ("result", None), ("ocasion", ""), ("sentir", ""),
 # ── HEADER ─────────────────────────────────────────────────
 st.markdown('<div class="monogram"><div class="monogram-inner">M</div></div>', unsafe_allow_html=True)
 st.markdown('<div class="brand-name">Mio Úmore</div>', unsafe_allow_html=True)
-st.markdown('<div class="brand-tagline">Maison de Parfum · Paris</div>', unsafe_allow_html=True)
+st.markdown('<div class="brand-tagline">Tu memoria hecha perfume</div>', unsafe_allow_html=True)
 st.markdown('<div class="ornament">◆ ◆ ◆</div>', unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════
@@ -354,13 +306,13 @@ st.markdown('<div class="ornament">◆ ◆ ◆</div>', unsafe_allow_html=True)
 if st.session_state.step == 0:
     st.markdown("""
     <div class="intro-container">
-        <p class="intro-text">Le miroir vous écoute.<br>Parlez-lui de vous.</p>
-        <p class="intro-detail">Deux questions · Une histoire · Votre parfum</p>
+        <p class="intro-text">El espejo te escucha.<br>Cuéntale algo de ti.</p>
+        <p class="intro-detail">Dos preguntas · Una historia · Tu perfume</p>
     </div>
     """, unsafe_allow_html=True)
     col_l, col_c, col_r = st.columns([1, 2, 1])
     with col_c:
-        if st.button("Entrer"):
+        if st.button("Comenzar"):
             st.session_state.step = 1
             st.rerun()
 
@@ -368,18 +320,18 @@ if st.session_state.step == 0:
 # STEP 1 — DOS PREGUNTAS
 # ══════════════════════════════════════════════════════════
 elif st.session_state.step == 1:
-    st.markdown('<div class="q-step">I · Contexte</div>', unsafe_allow_html=True)
+    st.markdown('<div class="q-step">I · Contexto</div>', unsafe_allow_html=True)
     st.markdown('<div class="q-text">¿Para qué momento es este perfume?</div>', unsafe_allow_html=True)
     ocasion = st.radio("ocasion", ["Para el día a día", "Para una noche especial", "Solo para mí"], label_visibility="collapsed")
 
     st.markdown('<div class="rule"><div class="rule-line"></div><div class="rule-diamond">◆</div><div class="rule-line"></div></div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="q-step">II · Désir</div>', unsafe_allow_html=True)
+    st.markdown('<div class="q-step">II · Deseo</div>', unsafe_allow_html=True)
     st.markdown('<div class="q-text">¿Cómo quieres sentirte al usarlo?</div>', unsafe_allow_html=True)
     sentir = st.radio("sentir", ["Poderosa e imparable", "Tranquila y en paz", "Libre y sin límites", "Misteriosa y profunda", "Luminosa y renovada"], label_visibility="collapsed")
 
     st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("Continuer →"):
+    if st.button("Continuar →"):
         st.session_state.ocasion = ocasion
         st.session_state.sentir = sentir
         st.session_state.step = 2
@@ -389,7 +341,7 @@ elif st.session_state.step == 1:
 # STEP 2 — LA HISTORIA
 # ══════════════════════════════════════════════════════════
 elif st.session_state.step == 2:
-    st.markdown('<div class="q-step">III · Le Miroir vous écoute</div>', unsafe_allow_html=True)
+    st.markdown('<div class="q-step">III · El espejo te escucha</div>', unsafe_allow_html=True)
     st.markdown('<div class="q-text">Cuéntale algo al espejo.</div>', unsafe_allow_html=True)
 
     st.markdown("""
@@ -411,10 +363,8 @@ elif st.session_state.step == 2:
     with col2:
         if st.button("El espejo interpreta →"):
             if historia.strip():
-                emotion = analyze_story(historia, st.session_state.ocasion, st.session_state.sentir)
-                accord = get_accord(emotion)
-                memory_title = get_memory_title(emotion)
-                st.session_state.result = {"emotion": emotion, "accord": accord, "memory_title": memory_title}
+                result = analyze_and_build_result(historia, st.session_state.ocasion, st.session_state.sentir)
+                st.session_state.result = result
                 st.session_state.step = 3
                 st.rerun()
             else:
@@ -428,7 +378,7 @@ elif st.session_state.step == 3:
     <div class="mirror-container">
         <div class="mirror-frame">
             <div class="mirror-eye">🜲</div>
-            <div class="mirror-reading">Le miroir lit votre histoire...</div>
+            <div class="mirror-reading">El espejo lee tu historia...</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -451,9 +401,9 @@ elif st.session_state.step == 3:
 elif st.session_state.step == 4:
     r = st.session_state.result
     memory_title = r["memory_title"]
-    suggested = MEMORY_TITLES.get(r["emotion"], ["Lo que fue mío", "Sin nombre aún", "El momento"])
+    suggested = r.get("suggested_names", MEMORY_TITLES.get(r["emotion"], ["Lo que fue mío", "Sin nombre aún", "El momento"]))
 
-    st.markdown('<div class="q-step">IV · Votre gravure</div>', unsafe_allow_html=True)
+    st.markdown('<div class="q-step">IV · Tu grabado</div>', unsafe_allow_html=True)
     st.markdown('<div class="q-text">Este nombre quedará grabado<br>en tu botella para siempre.</div>', unsafe_allow_html=True)
 
     st.markdown("""
@@ -502,7 +452,7 @@ elif st.session_state.step == 4:
             st.session_state.step = 2
             st.rerun()
     with col2:
-        btn_label = "Graver et révéler →" if titulo_final else "Choisir un nom d'abord"
+        btn_label = "Grabar y revelar →" if titulo_final else "Elige un nombre primero"
         if st.button(btn_label):
             if titulo_final:
                 st.session_state.final_name = titulo_final
@@ -586,31 +536,96 @@ elif st.session_state.step == 5:
         <div class="accord-desc-reveal">{accord["descripcion"]}</div>
         <div class="notes-row">
             <div class="note-col">
-                <div class="note-label">Sortie</div>
+                <div class="note-label">Salida</div>
                 <div class="note-value">{notes_s}</div>
             </div>
             <div class="note-col">
-                <div class="note-label">Cœur</div>
+                <div class="note-label">Corazón</div>
                 <div class="note-value">{notes_c}</div>
             </div>
             <div class="note-col">
-                <div class="note-label">Fond</div>
+                <div class="note-label">Fondo</div>
                 <div class="note-value">{notes_b}</div>
             </div>
         </div>
         <div class="engraved-section">
             <div class="engraved-name">{final_name}</div>
-            <div class="engraved-sub">Gravé sur votre flacon</div>
+            <div class="engraved-sub">Grabado en tu botella</div>
         </div>
         <div style="text-align:center;">
-            <div class="clean-badge">✦ Formule propre · Rechargeable</div>
+            <div class="clean-badge">✦ Fórmula limpia · Recargable</div>
             <div class="hashtag">#MioUmore</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
+    # 4 — Ingredientes activos y sus beneficios emocionales
+    INGREDIENT_BENEFITS = {
+        "bergamota": {"activo": "Linalool + Limoneno", "beneficio": "Reduce ansiedad y eleva el ánimo", "origen": "Cítrico natural, Calabria"},
+        "pomelo": {"activo": "Limoneno", "beneficio": "Energiza y aporta claridad mental", "origen": "Cítrico natural"},
+        "mandarina": {"activo": "Limoneno + Gamma-terpineno", "beneficio": "Optimismo y vitalidad", "origen": "Cítrico natural"},
+        "limón": {"activo": "Limoneno", "beneficio": "Energía y claridad mental", "origen": "Cítrico natural"},
+        "rosa": {"activo": "Phenylethyl alcohol", "beneficio": "Romanticismo y calma interior", "origen": "Rosa centifolia, Grasse"},
+        "jazmín": {"activo": "Hedione", "beneficio": "Atracción y luminosidad emocional", "origen": "Floral sintético-natural"},
+        "jazmín sambac": {"activo": "Indol + Hedione", "beneficio": "Atracción, reduce el estrés", "origen": "Floral natural, India"},
+        "lavanda": {"activo": "Linalool + Acetato de linalilo", "beneficio": "Relajación profunda, reduce el cortisol", "origen": "Floral natural, Provenza"},
+        "neroli": {"activo": "Linalool + Nerolidol", "beneficio": "Serenidad y equilibrio emocional", "origen": "Flor de naranjo, Grasse"},
+        "ylang-ylang": {"activo": "Germacreno + Linalool", "beneficio": "Sensualidad y calma", "origen": "Floral natural, Madagascar"},
+        "geranio": {"activo": "Geraniol + Citronelol", "beneficio": "Equilibrio hormonal, frescura", "origen": "Floral-herbal natural"},
+        "rosa de mayo": {"activo": "Phenylethyl alcohol", "beneficio": "Romanticismo y calma interior", "origen": "Rosa centifolia, Grasse"},
+        "sándalo": {"activo": "Santalol alfa + beta", "beneficio": "Calma profunda, meditación", "origen": "Madera natural, India/Australia"},
+        "cedro": {"activo": "Cedrol", "beneficio": "Estabilidad emocional y enfoque", "origen": "Madera natural, Atlas"},
+        "vetiver": {"activo": "Vetiverol + Khusimol", "beneficio": "Conexión con la tierra, anti-ansiedad", "origen": "Raíz natural, Haití"},
+        "patchouli": {"activo": "Patchoulol", "beneficio": "Grounding profundo, equilibrio", "origen": "Hoja natural, Indonesia"},
+        "vainilla": {"activo": "Vanilina", "beneficio": "Nostalgia, confort, reduce la tensión", "origen": "Orquídea, Madagascar"},
+        "canela": {"activo": "Cinamaldehído", "beneficio": "Calidez emocional y energía", "origen": "Corteza natural, Sri Lanka"},
+        "cardamomo": {"activo": "1,8-Cineol + Acetato de terpinilo", "beneficio": "Claridad mental y calidez", "origen": "Especia natural, Guatemala"},
+        "pimienta negra": {"activo": "Piperina + Beta-cariofileno", "beneficio": "Energía y determinación", "origen": "Especia natural, India"},
+        "pimienta rosa": {"activo": "Limoneno + Mirceno", "beneficio": "Frescura delicada y alegría", "origen": "Baya natural, Brasil"},
+        "ámbar": {"activo": "Ambroxan", "beneficio": "Sensualidad y calidez envolvente", "origen": "Molécula sustentable"},
+        "almizcle blanco": {"activo": "Galaxolide", "beneficio": "Limpieza emocional, suavidad", "origen": "Molécula sintética limpia"},
+        "Iso E Super": {"activo": "Iso E Super", "beneficio": "Calidez de piel, efecto magnético", "origen": "Molécula de autor"},
+        "hoja verde": {"activo": "Cis-3-hexenol", "beneficio": "Frescura vital, conexión con naturaleza", "origen": "Molécula verde natural"},
+        "musgo de roble": {"activo": "Evernyl (oakmoss sintético)", "beneficio": "Profundidad terrosa, nostalgia", "origen": "Sintético sustentable (IFRA safe)"},
+        "nenúfar": {"activo": "Hedione + notas acuáticas", "beneficio": "Frescura acuática y serenidad", "origen": "Acorde floral-acuático"},
+        "sal marina": {"activo": "Calone + minerales", "beneficio": "Esperanza, amplitud emocional", "origen": "Molécula marina"},
+    }
+
+    # Collect all notes from the accord
+    all_notes = []
+    for layer in ["salida", "corazon", "base"]:
+        all_notes.extend(accord.get("notas", {}).get(layer, []))
+
+    # Find matching ingredients with benefits
+    active_ingredients = []
+    for note in all_notes:
+        note_lower = note.lower()
+        for key, info in INGREDIENT_BENEFITS.items():
+            if isinstance(info, dict) and key.lower() in note_lower:
+                active_ingredients.append({"nota": note, **info})
+                break
+
+    if active_ingredients:
+        for ing in active_ingredients[:4]:
+            st.markdown(f"""
+            <div style="padding:0.8rem 0;border-bottom:1px solid rgba(180,150,100,0.08);">
+                <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#D4C9BC;margin-bottom:0.25rem;">
+                    {ing['nota']}
+                </div>
+                <div style="font-size:0.75rem;color:#B4966A;letter-spacing:0.03em;margin-bottom:0.2rem;">
+                    Activo: {ing['activo']}
+                </div>
+                <div style="font-family:'EB Garamond',serif;font-size:0.88rem;font-style:italic;color:#C9B89A;">
+                    ✦ {ing['beneficio']}
+                </div>
+                <div style="font-size:0.6rem;color:#8A7A6A;letter-spacing:0.15em;margin-top:0.2rem;">
+                    {ing['origen']}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
     st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("Créer un autre parfum"):
+    if st.button("Crear otro perfume"):
         st.session_state.step = 0
         st.session_state.result = None
         st.session_state.final_name = ""
